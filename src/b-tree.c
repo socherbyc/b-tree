@@ -60,6 +60,8 @@ int buscar (Arvore *a, TIPO chave) {
          return buscar (a->filhos[i], chave);
       }
    }
+
+   return 0;
 }
 
 Arvore* dividir_no (Arvore *x, int i, Arvore *y) {
