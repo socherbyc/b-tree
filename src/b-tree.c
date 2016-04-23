@@ -1,5 +1,7 @@
 #include <b-tree.h>
 
+extern int DEBUG;
+
 struct _node {
   int n; /*Número de chaves armazenadas no nó!*/
   int folha; /*Booleano que indica se o nó é folha ou não!*/
@@ -158,6 +160,13 @@ Arvore *inserir (Arvore *raiz, TIPO chave) {
     s->folha = FALSE;
     s->filhos[0] = r;
     s = dividir_no (s, 0, r);
+    if (DEBUG) {
+      printf("###########VVV~~~~~ (%d)\n", chave);
+      imprimir_by_type(s, 0, "%d|");
+      printf("~~~\n");
+      imprimir_by_type(r, 0, "%d|");
+      printf("###########AAA~~~~~\n");
+    }
     s = inserir_arvore_nao_cheia (s, chave);
     return s;
   }
