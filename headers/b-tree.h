@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define TIPO char
+#define TIPO int
 
 #define T 2           /*Número que define mínimo e máximo de chaves!*/
 #define NOT_FOUND -1  /*Valor retornado quando o nó não existe!*/
@@ -18,6 +18,9 @@ Arvore* criar ();
 
 /*Função para buscar uma chave em uma árvore B:*/
 void imprimir (Arvore *a, int nivel);
+
+// function for print customized form b-tree
+void imprimir_by_type (Arvore *a, int nivel, char *format);
 
 /*Função para buscar uma chave em uma árvore B:*/
 int buscar (Arvore *a, TIPO chave);

@@ -37,6 +37,26 @@ void imprimir (Arvore *a, int nivel) {
   }
 }
 
+void imprimir_by_type (Arvore *a, int nivel, char *format) {
+
+  int i;
+  for (i = 0; i < nivel; i++) {
+    printf("  ");
+  }
+
+  printf("|");
+  for (i = 0; i < a->n; i++) {
+    printf(format, a->chaves[i]);
+  }
+  printf("\n");
+
+  for (i = 0; i <= a->n; i++) {
+    if (a->folha == FALSE) {
+      imprimir_by_type(a->filhos[i], nivel + 1, format);
+    }
+  }
+}
+
 int buscar (Arvore *a, TIPO chave) {
 
    int i = 0;
